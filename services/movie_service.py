@@ -21,6 +21,17 @@ def read_all_movie(db: Session) -> List[Movie]:
     return db_movie
 
 
+def update_movie(id: int, db: Session, movie_data: movie_schema.MovieUpdate) -> Optional[Movie]:
+    movie = db.get(Movie, id)
+    
+    if movie_data is not None:
+        movie.title = movie_data.title
+    
+    db.commit()
+    db.refresh(movie)
+    return movie
+
+
 def delete_movie(id: int, db: Session) -> bool:
     movie = db.get(Movie, id)
     if movie:

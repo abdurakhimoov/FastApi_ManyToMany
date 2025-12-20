@@ -18,5 +18,5 @@ class MovieRead(MovieBase):
         from_attributes = True
 
 
-class MoviUpdate(MovieBase):
+class MovieUpdate(MovieBase):
     pass
