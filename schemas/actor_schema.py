@@ -2,18 +2,22 @@ from typing import List
 from pydantic import BaseModel
 
 
-class ActorModel(BaseModel):
+class ActorBase(BaseModel):
     name: str
     year: int
 
 
-class ActorCreate(ActorModel):
+class ActorCreate(ActorBase):
     pass
 
 
-class ActorRead(ActorModel):
+class ActorRead(ActorBase):
     id: int
     movies: List[str] = []
 
     class Config:
         from_attributes = True
+
+
+class ActorUpdate(ActorBase):
+    pass

@@ -16,3 +16,7 @@ class MovieRead(MovieBase):
 
     class Config:
         from_attributes = True
+
+
+class MoviUpdate(MovieBase):
+    pass
